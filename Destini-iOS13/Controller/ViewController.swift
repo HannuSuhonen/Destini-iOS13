@@ -16,14 +16,14 @@ class ViewController: UIViewController {
     
     let stories = [
         Story(title: "You see a fork in the road.",
-                           choice1: "Take a left.",
+              choice1: "Take a left.",
               choice2: "Take a right."),
         Story(title: "You see a tiger.",
-                           choice1: "Shout for help.",
-                           choice2: "Play dead."),
+              choice1: "Shout for help.",
+              choice2: "Play dead."),
         Story(title: "You find a treasure chest.",
-                           choice1: "Open it.",
-                           choice2: "Check for traps.")
+              choice1: "Open it.",
+              choice2: "Check for traps.")
     ]
     
     override func viewDidLoad() {
@@ -32,5 +32,12 @@ class ViewController: UIViewController {
         
         choice1Button.setTitle(stories[0].choice1, for: .normal)
         choice2Button.setTitle(stories[1].choice1, for: .normal)
+    }
+    @IBAction func choiceMade(_ sender: UIButton) {
+        if(sender.titleLabel?.text == stories[0].choice1){
+            storyLabel.text = stories[1].title
+        }else{
+            storyLabel.text = stories[2].title
+        }
     }
 }
