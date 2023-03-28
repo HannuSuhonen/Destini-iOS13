@@ -30,8 +30,7 @@ class ViewController: UIViewController {
         let nextStory = storyBrain.nextStory(userChoice: sender.currentTitle!)
         storyLabel.text = nextStory
         
-        let buttonTexts = storyBrain.updateButtonText()
-        choice1Button.setTitle(buttonTexts[0], for: .normal)
-        choice2Button.setTitle(buttonTexts[1], for: .normal)
+        choice1Button.setTitle(storyBrain.stories[storyBrain.storyNumber].choice1, for: .normal)
+        choice2Button.setTitle(storyBrain.stories[storyBrain.storyNumber].choice2, for: .normal)
     }
 }
