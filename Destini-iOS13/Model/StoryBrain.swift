@@ -45,18 +45,25 @@ struct StoryBrain{
         choice2: "End", choice2Destination: 0
     ) ]
     
-    mutating func nextStory(userChoice: String) -> String{
-        if(userChoice == stories[0].choice1){
-            storyNumber = stories[0].choice1Destination
-            return stories[1].title
-           
-        }
-        else if(userChoice == stories[0].choice2){
-            storyNumber = stories[0].choice2Destination
-            return stories[2].title
-        }
-        else{
-            return "Error incorrect title"
+    func getStoryTitle() -> String {
+        return stories[storyNumber].title
+    }
+    
+    func getChoice1() -> String {
+        return stories[storyNumber].choice1
+    }
+    
+    func getChoice2() -> String {
+        return stories[storyNumber].choice2
+    }
+    
+    mutating func nextStory(userChoice: String) {
+        
+        let currentStory = stories[storyNumber]
+        if userChoice == currentStory.choice1 {
+            storyNumber = currentStory.choice1Destination
+        } else if userChoice == currentStory.choice2 {
+            storyNumber = currentStory.choice2Destination
         }
     }
 }
